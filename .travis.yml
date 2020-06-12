@@ -1,0 +1,15 @@
+sudo: required
+services:
+  - docker
+
+bofore_install:
+  - docker build -t obozhinov/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true obozhinov/react-test npm test
+
+after_success:
+  - docker build -t obozhinov/multi-client ./client
+  - docker build -t obozhinov/multi-nginx ./nginx
+  - docker build -t obozhinov/multi-server ./server
+  - docker build -t obozhinov/multi-worker ./worker
