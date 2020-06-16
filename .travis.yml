@@ -18,7 +18,6 @@ before install:
   - docker build -t obozhinov/react-test -f ./client/Dockerfile.dev ./client
 script:
   - docker run -e CI=true obozhinov/react-test npm run test
-
 deploy:
   provider: script
   script: bash ./deploy.sh
