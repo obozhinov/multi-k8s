@@ -10,6 +10,6 @@ docker push obozhinov/multi-server:$SHA
 docker push obozhinov/multi-worker:$SHA
 
 kubectl apply -f k8s
-# kubectl set image obozhinov/server-deployment server=obozhinov/multi-server:$SHA
-# kubectl set image obozhinov/client-deployment server=obozhinov/multi-client:$SHA
-# kubectl set image obozhinov/worker-deployment server=obozhinov/multi-worker:$SHA
+kubectl set image obozhinov/server-deployment server=obozhinov/multi-server:$SHA
+kubectl set image obozhinov/client-deployment server=obozhinov/multi-client:$SHA
+kubectl set image obozhinov/worker-deployment server=obozhinov/multi-worker:$SHA
